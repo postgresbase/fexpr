@@ -3,7 +3,7 @@ package fexpr_test
 import (
 	"fmt"
 
-	"github.com/ganigeorgiev/fexpr"
+	"ganigeorgiev.com/fexpr"
 )
 
 func ExampleScanner_Scan() {

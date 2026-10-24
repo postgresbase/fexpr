@@ -1,25 +1,23 @@
-fexpr
-[![Go Report Card](https://goreportcard.com/badge/github.com/ganigeorgiev/fexpr)](https://goreportcard.com/report/github.com/ganigeorgiev/fexpr)
-[![GoDoc](https://godoc.org/github.com/ganigeorgiev/fexpr?status.svg)](https://pkg.go.dev/github.com/ganigeorgiev/fexpr)
+fexpr [![GoDoc](https://godoc.org/ganigeorgiev.com/fexpr?status.svg)](https://pkg.go.dev/ganigeorgiev.com/fexpr)
 ================================================================================
 
 **fexpr** is a filter query language parser that generates easy to work with AST structure so that you can create safely SQL, Elasticsearch, etc. queries from user input.
 
 Or in other words, transform the string `"id > 1"` into the struct `[{&& {{identifier id} > {number 1}}}]`.
 
-Supports parenthesis and various conditional expression operators (see [Grammar](https://github.com/ganigeorgiev/fexpr#grammar)).
+Supports parenthesis and various conditional expression operators (see [Grammar](https://ganigeorgiev.com/fexpr#grammar)).
 
 
 ## Example usage
 
 ```
-go get github.com/ganigeorgiev/fexpr
+go get ganigeorgiev.com/fexpr
 ```
 
 ```go
 package main
 
-import github.com/ganigeorgiev/fexpr
+import ganigeorgiev.com/fexpr
 
 func main() {
     // [{&& {{identifier id} = {number 123}}} {&& {{identifier status} = {text active}}}]
@@ -28,15 +26,14 @@ func main() {
 ```
 
 > Note that each parsed expression statement contains a join/union operator (`&&` or `||`) so that the result can be consumed on small chunks without having to rely on the group/nesting context.
-
-> See the [package documentation](https://pkg.go.dev/github.com/ganigeorgiev/fexpr) for more details and examples.
+> See the [package documentation](https://pkg.go.dev/ganigeorgiev.com/fexpr) for more details and examples.
 
 
 ## Grammar
 
 **fexpr** grammar resembles the SQL `WHERE` expression syntax. It recognizes several token types (identifiers, numbers, quoted text, expression operators, whitespaces, etc.).
 
-> You could find all supported tokens in [`scanner.go`](https://github.com/ganigeorgiev/fexpr/blob/master/scanner.go).
+> You could find all supported tokens in [`scanner.go`](https://ganigeorgiev.com/fexpr/fexpr/files/scanner.go).
 
 #### Operators
 
